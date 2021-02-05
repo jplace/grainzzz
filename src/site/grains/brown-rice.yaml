@@ -1,0 +1,11 @@
+tags: grain
+title: Brown Rice (Short/Medium Grain)
+description: |
+  Brown rice is white rice, but with the grain's bran layer and cereal germ left intact. These layers offer additional fiber and nutrition.
+
+  The term "brown rice" can apply to many varities of rice. This page is specifically for cooking short/medium grain brown rice.
+needToWash: "YES"
+liquidToGrain: "1:1"
+liquidToGrainMarkers: true
+setting: "Brown"
+expectedCookTime: 90
