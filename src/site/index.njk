@@ -3,4 +3,15 @@ layout: layouts/_base.njk
 title: jplace's 11ty Starter
 ---
 
-<h1 class="text-6xl">Hello, World!</h1>
+<main class="p-8 my-64 mx-32 border border-gray-300 rounded bg-white">
+  <form>
+    <label for="grain">What are you trying cook?</label>
+    <input id="grain" list="grains" placeholder="white rice" />
+    <datalist id="grains">
+      {{ collections.grain[0] | dump }}
+      {% for grain in collections.grain %}
+      {{ grain.data.title }}
+      {% endfor %}
+    </datalist>
+  </form>
+</main>
