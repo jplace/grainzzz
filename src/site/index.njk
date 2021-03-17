@@ -4,14 +4,22 @@ title: jplace's 11ty Starter
 ---
 
 <main class="p-8 my-64 mx-32 border border-gray-300 rounded bg-white">
-  <form>
-    <label for="grain">What are you trying cook?</label>
-    <input id="grain" list="grains" placeholder="white rice" />
-    <datalist id="grains">
-      {{ collections.grain[0] | dump }}
-      {% for grain in collections.grain %}
-      {{ grain.data.title }}
-      {% endfor %}
-    </datalist>
+  <form class="space-y-8">
+    <div class="flex justify-center">
+      <label for="grain">What are you trying cook?</label>
+    </div>
+    <div class="flex justify-center">
+      <input
+        id="grain"
+        list="grains"
+        placeholder="{{ collections.grain[0].data.title }}, ..."
+        class="w-full px-4 py-2 border rounded-full focus:outline-none focus:ring-4 focus:ring-plum-500 focus:ring-opacity-50"
+      />
+      <datalist id="grains">
+        {% for grain in collections.grain %}
+        <option>{{ grain.data.title }}</option>
+        {% endfor %}
+      </datalist>
+    </div>
   </form>
 </main>

@@ -1,5 +1,7 @@
+---
 tags: grain
-title: White Rice (Short/Medium Grain)
+title: White Rice
+summary: Short or medium grain
 description: |
   White rice is milled rice with the grain's husk, bran layer and cereal germ removed.
 
@@ -9,3 +11,4 @@ liquidToGrain: "1:1"
 liquidToGrainMarkers: true
 setting: "White"
 expectedCookTime: 90
+---

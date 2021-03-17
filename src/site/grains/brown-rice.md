@@ -1,5 +1,7 @@
+---
 tags: grain
-title: Brown Rice (Short/Medium Grain)
+title: Brown Rice
+summary: Short or medium grain
 description: |
   Brown rice is milled rice with the grain's bran layer and cereal germ left intact. These layers offer additional fiber and nutrition.
 
@@ -9,3 +11,4 @@ liquidToGrain: "1:1"
 liquidToGrainMarkers: true
 setting: "Brown"
 expectedCookTime: 105
+---
