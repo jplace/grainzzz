@@ -1,5 +1,6 @@
 ---
 tags: grain
+layout: layouts/grain.njk
 title: Farro
 summary: Emmer farro
 description: |

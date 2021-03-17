@@ -1,5 +1,6 @@
 ---
 tags: grain
+layout: layouts/grain.njk
 title: Barley
 summary: Pearled barley
 description: |

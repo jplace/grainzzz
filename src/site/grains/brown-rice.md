@@ -1,5 +1,6 @@
 ---
 tags: grain
+layout: layouts/grain.njk
 title: Brown Rice
 summary: Short or medium grain
 description: |

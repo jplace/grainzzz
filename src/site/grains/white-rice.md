@@ -1,5 +1,6 @@
 ---
 tags: grain
+layout: layouts/grain.njk
 title: White Rice
 summary: Short or medium grain
 description: |

@@ -1,5 +1,6 @@
 ---
 tags: grain
+layout: layouts/grain.njk
 title: Jasmine Rice
 summary: White rice
 description: |

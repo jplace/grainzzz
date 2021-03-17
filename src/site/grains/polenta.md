@@ -1,5 +1,6 @@
 ---
 tags: grain
+layout: layouts/grain.njk
 title: Polenta
 summary: Corn polenta
 description: |
