@@ -3,9 +3,38 @@
 <!-- prettier-ignore -->
 {% block body %}
 <main
-  class="max-w-lg p-8 my-64 mx-auto border border-gray-300 rounded bg-white"
+  class="max-w-lg py-6 px-8 mt-64 mx-auto border border-gray-300 rounded bg-white"
 >
-  <h1>{{ title }}</h1>
+  <h1 class="text-2xl mb-4">{{ title }}</h1>
+  <p class="text-sm mb-6">{{ description }}</p>
+  <!-- <img width="475.801" height="475.801" src="/images/rice-cooker.svg" /> -->
+  <div class="space-y-2">
+    {% if needToWash == "YES" %}
+    <div class="flex">
+      <span class="pr-3">🚰</span>
+      <span> <strong>Wash</strong> before cooking</span>
+    </div>
+    {% endif %}
+    <div class="flex">
+      <span class="pr-3">🧮</span>
+      <span><strong>1:2</strong> ratio of grain to liquid</span>
+    </div>
+    <div class="flex">
+      <span class="pr-3">🍚</span>
+      <span
+        ><strong>{{ setting }}</strong> setting on cooker</span
+      >
+    </div>
+    <div class="flex">
+      <span class="pr-3">⏰</span>
+      <span
+        ><strong>{{ expectedCookTime }}</strong> minutes to cook</span
+      >
+    </div>
+  </div>
 </main>
+<div class="max-w-lg flex justify-end mx-auto mt-2">
+  <a href="/" class="text-xs text-gray-600 hover:underline">More grains →</a>
+</div>
 <!-- prettier-ignore -->
 {% endblock %}
