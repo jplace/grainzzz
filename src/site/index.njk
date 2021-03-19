@@ -4,9 +4,9 @@ title: jplace's 11ty Starter
 ---
 
 <main
-  class="max-w-lg p-8 my-64 mx-auto border border-gray-300 rounded bg-white"
+  class="max-w-lg p-8 mt-64 mx-auto border border-gray-300 rounded bg-white"
 >
-  <form class="space-y-8">
+  <form id="grainForm" class="space-y-8">
     <div class="flex justify-center">
       <label for="grain">What are you trying cook?</label>
     </div>
@@ -19,9 +19,27 @@ title: jplace's 11ty Starter
       />
       <datalist id="grains">
         {% for grain in collections.grain %}
-        <option>{{ grain.data.title }}</option>
+        <option data-url="{{ grain.url }}">
+          {{ grain.data.title }}
+        </option>
         {% endfor %}
       </datalist>
     </div>
   </form>
 </main>
+<script>
+  const $grainForm = document.getElementById("grainForm");
+  const $options = $grainForm.querySelectorAll("option[data-url]");
+
+  $grainForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const value = event.target.querySelector("#grain").value;
+
+    for (const $option of $options) {
+      if ($option.text === value) {
+        window.location = $option.dataset.url;
+      }
+    }
+  });
+</script>
