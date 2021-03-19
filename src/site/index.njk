@@ -16,6 +16,7 @@ title: jplace's 11ty Starter
         list="grains"
         placeholder="{{ collections.grain[0].data.title }}, ..."
         class="w-full px-4 py-2 border rounded-full focus:outline-none focus:ring-4 focus:ring-plum-500 focus:ring-opacity-50"
+        pattern="{{ collections.grain | patternize }}"
       />
       <datalist id="grains">
         {% for grain in collections.grain %}
@@ -24,12 +25,14 @@ title: jplace's 11ty Starter
         </option>
         {% endfor %}
       </datalist>
+      <div id="grainError">No matches. Try another grain.</div>
     </div>
   </form>
 </main>
 <script>
   const $grainForm = document.getElementById("grainForm");
   const $options = $grainForm.querySelectorAll("option[data-url]");
+  const $error = document.getElementById("grainError");
 
   $grainForm.addEventListener("submit", function (event) {
     event.preventDefault();

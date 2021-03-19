@@ -42,6 +42,10 @@ module.exports = function (config) {
     }
   });
 
+  config.addFilter("patternize", function (value) {
+    return `^(${value.map((x) => x.data.title).join("|")})$`;
+  });
+
   // Pass through static assets
   config.addPassthroughCopy("./src/site/images");
   config.addPassthroughCopy("./src/site/fonts");
