@@ -1,22 +1,33 @@
 ---
-layout: layouts/_base.njk
 title: jplace's 11ty Starter
 ---
 
+{% extends "layouts/_base.njk" %}
+
+<!-- prettier-ignore -->
+{% block styles %}
+{{ super() }}
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.5/awesomplete.min.css"
+/>
+{% endblock %}
+
+<!-- prettier-ignore -->
+{% block body %}
 <main
   class="max-w-lg p-8 mt-64 mx-auto border border-gray-300 rounded bg-white"
 >
-  <form id="grainForm" class="space-y-8">
-    <div class="flex justify-center">
+  <form id="grainForm">
+    <div class="flex justify-center mb-4">
       <label for="grain">What are you trying cook?</label>
     </div>
     <div class="flex justify-center">
       <input
-        id="grain"
+        id="grainInput"
         list="grains"
         placeholder="{{ collections.grain[0].data.title }}, ..."
         class="w-full px-4 py-2 border rounded-full focus:outline-none focus:ring-4 focus:ring-plum-500 focus:ring-opacity-50"
-        pattern="{{ collections.grain | patternize }}"
       />
       <datalist id="grains">
         {% for grain in collections.grain %}
@@ -25,24 +36,62 @@ title: jplace's 11ty Starter
         </option>
         {% endfor %}
       </datalist>
-      <div id="grainError">No matches. Try another grain.</div>
     </div>
   </form>
 </main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.5/awesomplete.min.js"></script>
 <script>
   const $grainForm = document.getElementById("grainForm");
-  const $options = $grainForm.querySelectorAll("option[data-url]");
-  const $error = document.getElementById("grainError");
+  const $grainInput = $grainForm.querySelector("#grainInput");
+  const $grainOptions = $grainForm.querySelectorAll("option[data-url]");
+  const widget = new Awesomplete($grainInput, {
+    minChars: 0,
+    autoFirst: true,
+  });
 
-  $grainForm.addEventListener("submit", function (event) {
-    event.preventDefault();
-
-    const value = event.target.querySelector("#grain").value;
-
-    for (const $option of $options) {
-      if ($option.text === value) {
-        window.location = $option.dataset.url;
-      }
+  // Show dropdown on focus
+  $grainInput.addEventListener("focus", function (event) {
+    if (widget.ul.childNodes.length === 0) {
+      widget.minChars = 0;
+      widget.evaluate();
+    } else if (widget.ul.hasAttribute("hidden")) {
+      widget.open();
+    } else {
+      widget.close();
     }
   });
+
+  // Clear errors when user types
+  $grainInput.addEventListener("input", function () {
+    $grainInput.setCustomValidity("");
+  });
+
+  // Submit form when awesomeplete selection is selected
+  $grainInput.addEventListener("awesomplete-selectcomplete", function (event) {
+    $grainForm.dispatchEvent(new Event("submit", { cancelable: true }));
+  });
+
+  // Handle form submission
+  $grainForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    event.stopPropagation();
+
+    const value = $grainInput.value;
+
+    let found = false;
+    for (const $option of $grainOptions) {
+      if ($option.text === value) {
+        window.location = $option.dataset.url;
+        found = true;
+      }
+    }
+
+    if (!found) {
+      $grainInput.setCustomValidity("No match. Try a different grain.");
+      $grainInput.reportValidity();
+    }
+
+    return false;
+  });
 </script>
+{% endblock %}
