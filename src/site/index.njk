@@ -15,10 +15,19 @@ title: jplace's 11ty Starter
 
 <!-- prettier-ignore -->
 {% block body %}
-<main
-  class="max-w-lg p-8 mt-64 mx-auto border border-gray-300 rounded bg-white"
->
-  <form id="grainForm">
+<header class="flex items-center justify-center mt-8 sm:mt-16">
+  <img
+    src="/images/banner.png"
+    width="3072"
+    height="2304"
+    class="object-contain w-48 sm:w-64"
+  />
+</header>
+<main class="flex items-center justify-center">
+  <form
+    id="grainForm"
+    class="w-full sm:w-128 sm:flex-initial p-8 border-t border-b sm:border border-gray-300 sm:rounded bg-white"
+  >
     <div class="flex justify-center mb-4">
       <label for="grain">What are you trying cook?</label>
     </div>

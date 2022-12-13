@@ -25,6 +25,9 @@ module.exports = {
           900: "#080013",
         },
       },
+      spacing: {
+        128: "32rem",
+      },
     },
   },
   variants: {},
