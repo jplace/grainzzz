@@ -8,8 +8,7 @@ description: |
 
   The term "white rice" can apply to many varities of rice. This page is specifically for cooking short/medium grain white rice.
 needToWash: "MAYBE"
-liquidToGrain: "1:1"
-liquidToGrainMarkers: true
-setting: "White"
-expectedCookTime: 90
+liquidMarker: "White Rice"
+setting: "White Rice"
+expectedCookTime: 60
 ---

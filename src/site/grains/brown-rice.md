@@ -8,8 +8,7 @@ description: |
 
   The term "brown rice" can apply to many varities of rice. This page is specifically for cooking short/medium grain brown rice.
 needToWash: "YES"
-liquidToGrain: "1:1"
-liquidToGrainMarkers: true
+liquidMarker: "Brown Rice"
 setting: "Brown"
-expectedCookTime: 105
+expectedCookTime: 120
 ---
