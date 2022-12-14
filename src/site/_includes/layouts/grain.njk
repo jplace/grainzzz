@@ -15,10 +15,24 @@
         <span> <strong>Wash</strong> before cooking</span>
       </div>
       {% endif %}
+      <!---->
+      {% if grainToLiquid %}
       <div class="flex">
         <span class="pr-3">🧮</span>
-        <span><strong>1:2</strong> ratio of grain to liquid</span>
+        <span
+          ><strong>{{ grainToLiquid }}</strong> ratio of grain to liquid</span
+        >
       </div>
+      {% endif %}
+      <!---->
+      {% if liquidMarker %}
+      <div class="flex">
+        <span class="pr-3">🧮</span>
+        <span
+          >Fill to the <strong>{{ liquidMarker }}</strong> line</span
+        >
+      </div>
+      {% endif %}
       <div class="flex">
         <span class="pr-3">🍚</span>
         <span
