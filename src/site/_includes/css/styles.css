@@ -11,4 +11,8 @@
 @import "tailwindcss/utilities";
 
 /* Custom utilities */
-/* None */
+.markdown {
+  a {
+    @apply underline;
+  }
+}
