@@ -6,6 +6,13 @@ const NavMenu = function (menuButtonId, menuPushbarId) {
 };
 
 NavMenu.prototype.initialize = function () {
+  const setTabIndices = (tabIndex) => {
+    for (const $menuItem of this.$menuPushbar.querySelectorAll("a")) {
+      $menuItem.tabIndex = tabIndex;
+    }
+  };
+  setTabIndices(-1);
+
   this.$menuButton.addEventListener("click", () => {
     if (!this.isMenuOpen) {
       pushbar.open(this.$menuPushbar.dataset.pushbarId);
@@ -13,13 +20,17 @@ NavMenu.prototype.initialize = function () {
       pushbar.close(this.$menuPushbar.dataset.pushbarId);
     }
   });
+
   this.$menuPushbar.addEventListener("pushbar_opening", () => {
     this.isMenuOpen = true;
     this.$menuButton.dataset.menuOpen = true;
+    setTabIndices(0);
   });
+
   this.$menuPushbar.addEventListener("pushbar_closing", () => {
     this.isMenuOpen = false;
     delete this.$menuButton.dataset.menuOpen;
+    setTabIndices(-1);
   });
 };
 
