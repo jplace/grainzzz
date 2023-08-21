@@ -1,6 +1,24 @@
-<nav data-pushbar-id="left" data-pushbar-direction="left">
-  <ul>
-    <li><a class="block" href="/">Home</a></li>
-    <li><a class="block" href="/about">About</a></li>
+<!-- prettier-ignore -->
+{% macro render() %}
+<button id="menu-button" class="hamburger">
+  <div></div>
+  <div></div>
+  <div></div>
+</button>
+<nav
+  id="pushbar-menu"
+  data-pushbar-id="pushbar-menu"
+  data-pushbar-direction="left"
+  class="bg-gray-100 pt-9"
+>
+  <ul class="border-t border-b divide-y">
+    <li>
+      <a class="block p-6 text-center hover:bg-gray-200" href="/">Home</a>
+    </li>
+    <li>
+      <a class="block p-6 text-center hover:bg-gray-200" href="/about">About</a>
+    </li>
   </ul>
 </nav>
+<!-- prettier-ignore -->
+{% endmacro %}

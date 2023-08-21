@@ -2,30 +2,32 @@
 
 <!-- prettier-ignore -->
 {% block body %}
-<main class="flex items-center justify-center mt-16">
-  <div
-    class="w-full sm:w-128 sm:flex-initial py-6 px-8 border-t border-b sm:border border-gray-300 sm:rounded bg-white"
-  >
-    <h1 class="text-2xl leading-tight mb-4">{{ title }}</h1>
-    <div class="flex flex-col gap-4">
-      <div class="markdown text-sm">
-        {{ description | markdown | safe }}
+<div class="my-16">
+  <main class="flex items-center justify-center">
+    <div
+      class="w-full sm:w-128 sm:flex-initial py-6 px-8 border-t border-b sm:border border-gray-300 sm:rounded bg-white"
+    >
+      <h1 class="text-2xl leading-tight mb-4">{{ title }}</h1>
+      <div class="flex flex-col gap-4">
+        <div class="markdown text-sm">
+          {{ description | markdown | safe }}
+        </div>
+        <figure class="self-center shadow">
+          <img
+            src="/images/zojirushi-ns-zcc10.jpg"
+            width="1000"
+            height="1000"
+            alt="Zojirushi NS-ZCC10 rice cooker"
+          />
+        </figure>
       </div>
-      <figure class="self-center shadow">
-        <img
-          src="/images/zojirushi-ns-zcc10.jpg"
-          width="1000"
-          height="1000"
-          alt="Zojirushi NS-ZCC10 rice cooker"
-        />
-      </figure>
     </div>
+  </main>
+  <div class="max-w-lg flex justify-center sm:justify-end mx-auto mt-4 sm:mt-2">
+    <a href="/" class="text-sm sm:text-xs text-gray-600 hover:underline"
+      >Home →</a
+    >
   </div>
-</main>
-<div class="max-w-lg flex justify-center sm:justify-end mx-auto mt-4 sm:mt-2">
-  <a href="/" class="text-sm sm:text-xs text-gray-600 hover:underline"
-    >Home →</a
-  >
 </div>
 <!-- prettier-ignore -->
 {% endblock %}

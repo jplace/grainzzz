@@ -2,7 +2,7 @@
 title: Grainzzz
 ---
 
-{% extends "layouts/_base.njk" %}
+{% extends "layouts/_base.njk" %} {% import "components/menu.njk" as menu %}
 
 <!-- prettier-ignore -->
 {% block styles %}
@@ -11,10 +11,15 @@ title: Grainzzz
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.5/awesomplete.min.css"
 />
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/pushbar.js@1.0.0/src/pushbar.min.css"
+/>
 {% endblock %}
 
 <!-- prettier-ignore -->
 {% block body %}
+{{ menu.render() }}
 <header class="flex items-center justify-center sm:mt-8">
   <img
     src="/images/banner.png"
@@ -24,7 +29,7 @@ title: Grainzzz
     class="object-contain w-64"
   />
 </header>
-<main class="flex items-center justify-center">
+<main class="flex items-center justify-center mb-16">
   <form
     id="grainForm"
     class="w-full sm:w-128 sm:flex-initial p-8 border-t border-b sm:border border-gray-300 sm:rounded bg-white"
@@ -103,5 +108,10 @@ title: Grainzzz
 
     return false;
   });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/pushbar.js@1.0.0/src/pushbar.min.js"></script>
+<script>
+  // prettier-ignore
+  {% include "components/menu.js" %}
 </script>
 {% endblock %}

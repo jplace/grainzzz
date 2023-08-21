@@ -49,62 +49,21 @@
     <!-- prettier-ignore -->
     {% block styles %}
     <link rel="stylesheet" href="/css/styles.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/pushbar.js@1.0.0/src/pushbar.min.css"
-    />
     <!-- prettier-ignore -->
     {% endblock %}
     <title>{{ title }}</title>
   </head>
   <!-- prettier-ignore -->
   <body class="bg-gray-100">
-    <button id="menu-button" class="hamburger">
-      <div></div>
-      <div></div>
-      <div></div>
-    </button>
-    <nav data-pushbar-id="pushbar-menu" data-pushbar-direction="left" class="pt-12">
-      <ul>
-        <li><a class="block" href="/">Home</a></li>
-        <li><a class="block" href="/about">About</a></li>
-      </ul>
-    </nav>
     <!-- prettier-ignore -->
     {% block body %}
     {{ content | safe }}
     <!-- prettier-ignore -->
     {% endblock %}
-    <script src="https://cdn.jsdelivr.net/npm/pushbar.js@1.0.0/src/pushbar.min.js"></script>
-    <script>
-      const pushbar = new Pushbar({overlay: true});
-
-      const NavMenu = function(menuButtonId, menuPushbarId) {
-        this.$menuButton = document.getElementById(menuButtonId);
-        this.menuPushbarId = menuPushbarId;
-        this.isMenuOpen = false;
-      }
-
-      NavMenu.prototype.initialize = function() {
-        this.$menuButton.addEventListener("click", () => {
-          this.isMenuOpen = !this.isMenuOpen;
-          if (this.isMenuOpen) {
-            this.$menuButton.dataset.menuOpen = true;
-            pushbar.open(this.menuPushbarId);
-          } else { 
-            delete this.$menuButton.dataset.menuOpen;
-            pushbar.close(this.menuPushbarId);
-          }
-        })
-      }
-
-      const navMenu = new NavMenu("menu-button", "pushbar-menu");
-      navMenu.initialize();
-    </script>
     <script src="https://getinsights.io/js/insights.js"></script>
     <script>
-    insights.init('vtskIcLapdZE4cLA');
-    insights.trackPages();
+      insights.init('vtskIcLapdZE4cLA');
+      insights.trackPages();
     </script>
   </body>
 </html>
