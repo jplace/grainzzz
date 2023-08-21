@@ -29,6 +29,9 @@ module.exports = {
         128: "32rem",
         192: "48rem",
       },
+      zIndex: {
+        1001: "1001",
+      },
     },
   },
   variants: {},

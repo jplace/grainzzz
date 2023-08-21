@@ -16,3 +16,62 @@
     @apply underline;
   }
 }
+
+/* Inspired by https://codepen.io/himalayasingh/pen/mNOJPM */
+.hamburger {
+  --size: 30px;
+  --padding: 0.5rem;
+  position: fixed;
+  top: calc((var(--size) / 2) + var(--padding));
+  left: var(--padding);
+  display: block;
+  width: var(--size);
+  height: var(--size);
+  margin: calc(-1 * (var(--size) / 2)) auto 0 auto;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.hamburger div {
+  position: relative;
+  top: 0;
+  height: calc(var(--size) / 5);
+  background-color: #000000;
+  /* @apply bg-gray-900; */
+  /* @apply focus:outline-none focus-visible:ring; */
+  margin-bottom: calc(var(--size) / 5);
+  transition: 0.3s ease transform, 0.3s ease top, 0.3s ease width,
+    0.3s ease right;
+  border-radius: 2px;
+}
+
+.hamburger div:first-child {
+  transform-origin: 0;
+}
+
+.hamburger div:last-child {
+  margin-bottom: 0;
+  transform-origin: var(--size);
+}
+
+.hamburger div:nth-child(2) {
+  right: 0;
+  width: var(--size);
+}
+
+.hamburger[data-menu-open="true"] div:first-child {
+  top: calc(-1 * (var(--size) / 10));
+  transform: rotateZ(45deg);
+}
+
+.hamburger[data-menu-open="true"] div:last-child {
+  top: calc((var(--size) / 10));
+  transform: rotateZ(45deg);
+}
+
+.hamburger[data-menu-open="true"] div:nth-child(2) {
+  width: calc(var(--size) * (85 / 60));
+  top: 0;
+  right: calc(var(--size) * (13 / 60));
+  transform: rotateZ(-45deg);
+}
