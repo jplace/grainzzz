@@ -1,5 +1,17 @@
 @import "tailwindcss";
 
+@theme {
+  --color-plum-100: oklch(93.6% 0.026 302.57);
+  --color-plum-200: oklch(80.78% 0.082 302.23);
+  --color-plum-300: oklch(61.5% 0.169 299.64);
+  --color-plum-400: oklch(49.89% 0.217 294.93);
+  --color-plum-500: oklch(41.4% 0.238 286.23);
+  --color-plum-600: oklch(32.24% 0.182 287.71);
+  --color-plum-700: oklch(25.62% 0.143 289.19);
+  --color-plum-800: oklch(18.53% 0.1 292.3);
+  --color-plum-900: oklch(10.72% 0.056 305.35);
+}
+
 /* Custom utilities */
 .markdown {
   a {
