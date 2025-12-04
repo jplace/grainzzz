@@ -1,6 +1,7 @@
 {
   "name": "start-11ty",
   "version": "1.0.0",
+  "type": "module",
   "description": "This is jplace's 11ty starter.",
   "main": "index.js",
   "scripts": {
