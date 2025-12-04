@@ -32,17 +32,17 @@ title: Grainzzz
 <main class="flex items-center justify-center mb-16">
   <form
     id="grainForm"
-    class="w-full sm:w-128 sm:flex-initial p-8 border-t border-b sm:border border-gray-300 sm:rounded bg-white"
+    class="w-full sm:w-lg sm:flex-initial p-8 border-t border-b sm:border border-gray-300 sm:rounded bg-white"
   >
     <div class="flex justify-center mb-4">
-      <label for="grain">What are you trying cook?</label>
+      <label for="grainInput">What are you trying cook?</label>
     </div>
     <div class="flex justify-center">
       <input
         id="grainInput"
         list="grains"
         placeholder="{{ collections.grain[0].data.title }}, ..."
-        class="w-full px-4 py-2 border rounded-full focus:outline-none focus:ring-4 focus:ring-plum-500 focus:ring-opacity-50"
+        class="placeholder-gray-400 w-full px-4 py-2 border border-gray-200 rounded-full focus:outline-none focus:ring-4 focus:ring-plum-500/50"
       />
       <datalist id="grains">
         {% for grain in collections.grain %}
