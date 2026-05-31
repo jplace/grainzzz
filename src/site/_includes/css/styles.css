@@ -17,6 +17,10 @@
   a {
     @apply underline;
   }
+
+  p + p {
+    @apply mt-2;
+  }
 }
 
 /* Inspired by https://codepen.io/himalayasingh/pen/mNOJPM */
@@ -48,7 +52,10 @@
   height: calc(var(--size) / 5);
   @apply bg-gray-400;
   margin-bottom: calc(var(--size) / 5);
-  transition: 0.3s ease transform, 0.3s ease top, 0.3s ease width,
+  transition:
+    0.3s ease transform,
+    0.3s ease top,
+    0.3s ease width,
     0.3s ease right;
   border-radius: 2px;
 }
